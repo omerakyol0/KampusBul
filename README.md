@@ -59,6 +59,4 @@ eklenecektir.
 
 Harran Üniversitesi - Bilgisayar Mühendisliği
 
-## Ders
 
-Güncel Yazılım Geliştirme Süreçleri ve DevOps
