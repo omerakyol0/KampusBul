@@ -221,3 +221,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+# KampusBul veritabani
+*.db
+.venv/

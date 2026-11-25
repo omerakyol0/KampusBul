@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KampüsBul - İlan Oluştur</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>KampüsBul</h1>
+        <p>Üniversite Kayıp Eşya Platformu</p>
+    </header>
+
+    <main class="container">
+
+        <h2>Yeni İlan Oluştur</h2>
+
+        <p>Kaybettiğiniz veya bulduğunuz eşyayı bildirin.</p>
+
+        {% if hata %}
+            <div class="hata">{{ hata }}</div>
+        {% endif %}
+
+        {% if basarili %}
+            <div class="basarili">
+                İlan başarıyla oluşturuldu!
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            <label>Eşya Adı</label>
+            <input type="text" name="esya_adi"
+                   placeholder="Örn: Siyah cüzdan" required>
+
+            <label>İlan Türü</label>
+            <select name="tur" required>
+                <option value="">İlan türünü seçiniz</option>
+                <option value="Kayıp">Kayıp Eşya</option>
+                <option value="Bulunan">Bulunan Eşya</option>
+            </select>
+
+            <label>Konum</label>
+            <input type="text" name="konum"
+                   placeholder="Örn: Mühendislik Fakültesi" required>
+
+            <label>Açıklama</label>
+            <textarea name="aciklama" rows="5"
+                      placeholder="Eşyanın özelliklerini açıklayınız."
+                      required></textarea>
+
+            <button type="submit">İlanı Yayınla</button>
+
+        </form>
+
+    </main>
+
+    <footer>KampüsBul | Kayıp Eşya Platformu</footer>
+
+</body>
+</html>
