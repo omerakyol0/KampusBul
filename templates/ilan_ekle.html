@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>KampüsBul - İlan Oluştur</title>
+
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -13,6 +15,11 @@
     <header>
         <h1>KampüsBul</h1>
         <p>Üniversite Kayıp Eşya Platformu</p>
+
+        <nav>
+            <a href="/">Ana Sayfa</a>
+            <a href="/ilan-ekle">Yeni İlan Oluştur</a>
+        </nav>
     </header>
 
     <main class="container">
@@ -22,22 +29,30 @@
         <p>Kaybettiğiniz veya bulduğunuz eşyayı bildirin.</p>
 
         {% if hata %}
-            <div class="hata">{{ hata }}</div>
+            <div class="hata">
+                {{ hata }}
+            </div>
         {% endif %}
 
         {% if basarili %}
             <div class="basarili">
                 İlan başarıyla oluşturuldu!
+
+                <a href="/">İlanları görüntüle</a>
             </div>
         {% endif %}
 
         <form method="POST">
 
             <label>Eşya Adı</label>
-            <input type="text" name="esya_adi"
-                   placeholder="Örn: Siyah cüzdan" required>
+
+            <input type="text"
+                   name="esya_adi"
+                   placeholder="Örn: Siyah cüzdan"
+                   required>
 
             <label>İlan Türü</label>
+
             <select name="tur" required>
                 <option value="">İlan türünü seçiniz</option>
                 <option value="Kayıp">Kayıp Eşya</option>
@@ -45,21 +60,30 @@
             </select>
 
             <label>Konum</label>
-            <input type="text" name="konum"
-                   placeholder="Örn: Mühendislik Fakültesi" required>
+
+            <input type="text"
+                   name="konum"
+                   placeholder="Örn: Mühendislik Fakültesi"
+                   required>
 
             <label>Açıklama</label>
-            <textarea name="aciklama" rows="5"
+
+            <textarea name="aciklama"
+                      rows="5"
                       placeholder="Eşyanın özelliklerini açıklayınız."
                       required></textarea>
 
-            <button type="submit">İlanı Yayınla</button>
+            <button type="submit">
+                İlanı Yayınla
+            </button>
 
         </form>
 
     </main>
 
-    <footer>KampüsBul | Kayıp Eşya Platformu</footer>
+    <footer>
+        KampüsBul | Kayıp Eşya Platformu
+    </footer>
 
 </body>
 </html>

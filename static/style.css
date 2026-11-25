@@ -9,6 +9,8 @@ body {
     color: #1e293b;
 }
 
+/* Ust baslik */
+
 header {
     background: #064e3b;
     color: white;
@@ -20,6 +22,29 @@ header h1 {
     font-size: 36px;
     margin: 0;
 }
+
+/* Navigasyon menusu */
+
+nav {
+    margin-top: 25px;
+}
+
+nav a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    margin: 5px;
+    background: #ffffff20;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    background: #ffffff40;
+}
+
+/* Ilan olusturma formu */
 
 .container {
     max-width: 650px;
@@ -70,11 +95,20 @@ button:hover {
     background: #047857;
 }
 
+/* Basari ve hata mesajlari */
+
 .basarili {
     background: #dcfce7;
     color: #166534;
     padding: 15px;
     border-radius: 8px;
+}
+
+.basarili a {
+    display: block;
+    color: #166534;
+    margin-top: 10px;
+    font-weight: bold;
 }
 
 .hata {
@@ -84,15 +118,100 @@ button:hover {
     border-radius: 8px;
 }
 
+/* Ilan listeleme sayfasi */
+
+.ilan-container {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 20px;
+}
+
+.ilan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* Ilan kartlari */
+
+.ilan-kart {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #00000012;
+    border: 1px solid #e2e8f0;
+    overflow-wrap: anywhere;
+    transition: 0.2s;
+}
+
+.ilan-kart:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px #00000018;
+}
+
+.ilan-kart h2 {
+    margin-top: 20px;
+}
+
+.ilan-kart p {
+    line-height: 1.6;
+}
+
+.ilan-kart small {
+    color: #64748b;
+}
+
+.ilan-kart a {
+    color: #059669;
+    font-weight: bold;
+}
+
+/* Ilan turu etiketleri */
+
+.etiket {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.kayip {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.bulunan {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* Alt bilgi */
+
 footer {
     text-align: center;
     padding: 20px;
     color: #64748b;
 }
 
+/* Mobil uyumluluk */
+
 @media (max-width: 700px) {
+
     .container {
         margin: 20px 15px;
         padding: 20px;
+    }
+
+    .ilan-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    nav a {
+        padding: 10px 15px;
     }
 }

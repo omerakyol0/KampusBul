@@ -23,10 +23,22 @@ def veritabani_olustur():
         """)
 
 
-# Ana sayfa
+# Ana sayfa ve ilan listeleme
 @app.route("/")
 def ana_sayfa():
-    return redirect(url_for("ilan_ekle"))
+
+    with sqlite3.connect(DB_PATH) as baglanti:
+        baglanti.row_factory = sqlite3.Row
+
+        ilanlar = baglanti.execute("""
+            SELECT * FROM ilanlar
+            ORDER BY id DESC
+        """).fetchall()
+
+    return render_template(
+        "ilanlar.html",
+        ilanlar=ilanlar
+    )
 
 
 # Ilan olusturma

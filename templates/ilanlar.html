@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>KampüsBul - İlanlar</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>KampüsBul</h1>
+
+        <p>Üniversite Kayıp Eşya Platformu</p>
+
+        <nav>
+            <a href="/">Ana Sayfa</a>
+            <a href="/ilan-ekle">Yeni İlan Oluştur</a>
+        </nav>
+
+    </header>
+
+    <main class="ilan-container">
+
+        <h2>Kampüs İlanları</h2>
+
+        <p>Kampüste kaybolan ve bulunan eşyalar.</p>
+
+        <p>Toplam ilan sayısı: {{ ilanlar|length }}</p>
+
+        <div class="ilan-grid">
+
+            {% for ilan in ilanlar %}
+
+                <div class="ilan-kart">
+
+                    <span class="etiket {{ 'kayip' if ilan['tur'] == 'Kayıp' else 'bulunan' }}">
+
+                        {{ ilan['tur'] }} Eşya
+
+                    </span>
+
+                    <h2>{{ ilan['esya_adi'] }}</h2>
+
+                    <p>
+                        <strong>Konum:</strong>
+                        {{ ilan['konum'] }}
+                    </p>
+
+                    <p>
+                        <strong>Açıklama:</strong>
+                        {{ ilan['aciklama'] }}
+                    </p>
+
+                    <p>
+                        <strong>Durum:</strong>
+                        {{ ilan['durum'] }}
+                    </p>
+
+                    <small>
+                        Tarih: {{ ilan['tarih'] }}
+                    </small>
+
+                </div>
+
+            {% else %}
+
+                <div class="ilan-kart">
+
+                    <h2>Henüz ilan bulunmuyor.</h2>
+
+                    <p>İlk kayıp veya bulunan eşya ilanını siz oluşturabilirsiniz.</p>
+
+                    <a href="/ilan-ekle">
+                        Yeni İlan Oluştur
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </main>
+
+    <footer>
+        KampüsBul | Kayıp Eşya Platformu
+    </footer>
+
+</body>
+</html>
